@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-ios</TargetFramework>
+		<SupportedOSPlatformVersion>11.0</SupportedOSPlatformVersion>
+		<OutputType>Exe</OutputType>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseMaui>true</UseMaui>
+		<ProvisioningType>manual</ProvisioningType>
+		<!--https://github.com/xamarin/GoogleApisForiOSComponents/issues/643#issuecomment-1920970044-->
+		<_ExportSymbolsExplicitly>false</_ExportSymbolsExplicitly>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="GoogleService-Info.plist" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <BundleResource Include="GoogleService-Info.plist" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AdamE.Firebase.iOS.Core" Version="10.24.0.2" />
+		<PackageReference Include="AdamE.Firebase.iOS.Crashlytics" Version="10.24.0.2" />
+		<PackageReference Include="AdamE.Firebase.iOS.Installations" Version="10.24.0.2" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Plugin.Firebase.Core" Version="3.0.0" />
+		<PackageReference Include="Plugin.Firebase.Crashlytics" Version="3.0.0" />
+		<PackageReference Include="System.Runtime.InteropServices.NFloat.Internal" Version="6.0.1" />
+		<PackageReference Include="Xamarin.Build.Download" Version="0.11.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\FirebaseExperiment\FirebaseExperiment.csproj" />
+	</ItemGroup>
+
+</Project>
