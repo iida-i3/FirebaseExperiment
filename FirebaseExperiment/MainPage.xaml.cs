@@ -18,7 +18,10 @@ public partial class MainPage : ContentPage
 		else
 			CounterBtn.Text = $"Clicked {count} times";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        if (count == 5)
+            throw new Exception("This is a test exception");
+
+        SemanticScreenReader.Announce(CounterBtn.Text);
+    }
 }
 

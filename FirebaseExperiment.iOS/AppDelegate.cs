@@ -13,25 +13,38 @@ public class AppDelegate : MauiUIApplicationDelegate
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
     {
         Console.WriteLine("AppDelegate#FinishedLaunching");
-        // I confirmed isSupported to be true.
-        var isSupported = CrossFirebaseCrashlytics.IsSupported;
         CrossFirebase.Initialize();
-        // When the following method is called, the app crashes.
-        CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
+        try
+        {
+            CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.StackTrace);
+        }
         return base.FinishedLaunching(application, launchOptions);
     }
 
     public override bool WillFinishLaunching(UIApplication application, NSDictionary launchOptions)
     {
+        // WillFinishLaunching is really the right way to handle below codes.
+        //CrossFirebase.Initialize();
+        //try
+        //{
+        //    CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
+        //}
+        //catch (Exception ex)
+        //{
+        //    Console.WriteLine(ex.Message);
+        //    Console.WriteLine(ex.StackTrace);
+        //}
         return base.WillFinishLaunching(application, launchOptions);
     }
 
     public override void OnActivated(UIApplication application)
     {
         Console.WriteLine("AppDelegate#OnActivated");
-        //var isSupported = CrossFirebaseCrashlytics.IsSupported;
-        //CrossFirebase.Initialize();
-        //CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
         base.OnActivated(application);
     }
 }
