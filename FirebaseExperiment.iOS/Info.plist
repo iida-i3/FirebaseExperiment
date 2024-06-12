@@ -5,6 +5,7 @@
     <key>CFBundleDisplayName</key>
     <string>FirebaseExperiment</string>
     <key>CFBundleIdentifier</key>
+    <!-- PLEASE USE YOUR OWN IDENTIFIER-->
     <string>com.companyname.firebaseexperiment</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0</string>
