@@ -8,12 +8,14 @@ namespace FirebaseExperiment.iOS;
 [Register(nameof(AppDelegate))]
 public class AppDelegate : MauiUIApplicationDelegate
 {
+    /// <inheritdoc/>
 	protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
 
+    /// <inheritdoc/>
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
     {
         Console.WriteLine("AppDelegate#FinishedLaunching");
-        CrossFirebase.Initialize();
+        //CrossFirebase.Initialize();
         try
         {
             CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
@@ -42,6 +44,7 @@ public class AppDelegate : MauiUIApplicationDelegate
         return base.WillFinishLaunching(application, launchOptions);
     }
 
+    /// <inheritdoc/>
     public override void OnActivated(UIApplication application)
     {
         Console.WriteLine("AppDelegate#OnActivated");

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0-ios</TargetFramework>
@@ -12,8 +12,12 @@
 		<_ExportSymbolsExplicitly>false</_ExportSymbolsExplicitly>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <BuildIpa>False</BuildIpa>
+	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<BuildIpa>True</BuildIpa>
+	  <BuildIpa>True</BuildIpa>
 	</PropertyGroup>
 
 	<!-- Target needed until LinkWithSwiftSystemLibraries makes it into the SDK: https://github.com/xamarin/xamarin-macios/pull/20463 -->
@@ -47,10 +51,10 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Plugin.Firebase.Auth" Version="3.0.0" />
 		<PackageReference Include="Plugin.Firebase.Core" Version="3.0.0" />
 		<PackageReference Include="Plugin.Firebase.Crashlytics" Version="3.0.0" />
 		<PackageReference Include="System.Runtime.InteropServices.NFloat.Internal" Version="6.0.1" />
-		<PackageReference Include="Xamarin.Build.Download" Version="0.11.4" />
 	</ItemGroup>
 
 	<ItemGroup>
